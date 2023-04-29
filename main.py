@@ -15,7 +15,9 @@ client = TelegramClient('session_name', api_id, api_hash)
 @client.on(events.NewMessage())
 async def normal_handler(event):
     entity = await client.get_entity(user_tag)
-    await client.send_message(entity, message)
+    my_id = await client.get_me()
+    if event.from_id != my_id.id:
+        await client.send_message(entity, message)
 
 client.start()
 
