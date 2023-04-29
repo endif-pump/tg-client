@@ -1,8 +1,13 @@
-from telethon import TelegramClient, sync, events
+import os
 
-api_id = 1
-api_hash = ''
-user_tag = ''
+from telethon import TelegramClient, sync, events
+from dotenv import load_dotenv
+
+load_dotenv()
+
+api_id = os.getenv('api_id')
+api_hash = os.getenv('api_hash')
+user_tag = os.getenv('user_tag')
 message = 'Вам пришло уведомление'
 
 client = TelegramClient('session_name', api_id, api_hash)
