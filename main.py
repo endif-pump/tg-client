@@ -14,7 +14,6 @@ client = TelegramClient('session_name', api_id, api_hash)
 
 @client.on(events.NewMessage())
 async def normal_handler(event):
-    dialogs = await client.get_dialogs()
     entity = await client.get_entity(user_tag)
     await client.send_message(entity, message)
 
